@@ -9,3 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running lint checks..."
+      - run: ruff  # Fails!
