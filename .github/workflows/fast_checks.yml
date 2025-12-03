@@ -9,9 +9,13 @@ on:
 
 
 jobs:
-  fast_checks:
+  codespell:
+    uses: "cclauss/gha_fast_then_slow/.github/workflows/codespell.yml@main"
+  lint:
     uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+  precommit
+    uses: "cclauss/gha_fast_then_slow/.github/workflows/precommit.yml@main"
 
   slow_checks:
     needs: fast_checks
-    uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+    uses: "cclauss/gha_fast_then_slow/.github/build/lint.yml@main"
