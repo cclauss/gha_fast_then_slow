@@ -20,3 +20,16 @@ jobs:
     #  - name: Trying ${{ matrix.workflow }}...
     #    run: echo "Trying ${{ matrix.workflow }}..."
     #  - uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+
+  slow_checks:
+    needs: fast_checks
+    #runs-on: ubuntu-latest
+    #strategy:
+    #  fail-fast: false
+    #  matrix:
+    #    workflow: [lint] # , type_check, security_scan]
+    uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+    # steps:
+    #  - name: Trying ${{ matrix.workflow }}...
+    #    run: echo "Trying ${{ matrix.workflow }}..."
+    #  - uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
