@@ -1,0 +1,11 @@
+name: lint
+
+on:
+  workflow_call:  # Called by fast_checks.yml
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running lint checks..."
