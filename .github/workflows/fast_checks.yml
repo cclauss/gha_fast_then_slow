@@ -10,12 +10,21 @@ on:
 
 jobs:
   codespell:
-    uses: cclauss/gha_fast_then_slow/.github/workflows/${GITHUB_JOB}.yml@main
+    uses: cclauss/gha_fast_then_slow/.github/workflows/codespell.yml@main
   lint:
-    uses: cclauss/gha_fast_then_slow/.github/workflows/${GITHUB_JOB}.yml@main
+    uses: cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main
   precommit:
-    uses: cclauss/gha_fast_then_slow/.github/workflows/${GITHUB_JOB}.yml@main
+    uses: cclauss/gha_fast_then_slow/.github/workflows/precommit.yml@main
 
   build:
-    needs: [codespell, lint, precommit]
-    uses: cclauss/gha_fast_then_slow/.github/workflows/${GITHUB_JOB}.yml@main
+    needs: &fast_jobs
+      [codespell, lint, precommit]
+    uses: cclauss/gha_fast_then_slow/.github/workflows/build.yml@main
+
+  test:
+    needs: *fast_jobs
+    uses: cclauss/gha_fast_then_slow/.github/workflows/test.yml@main
+
+  publish:
+    needs: [build, test]
+    uses: cclauss/gha_fast_then_slow/.github/workflows/publish.yml@main
