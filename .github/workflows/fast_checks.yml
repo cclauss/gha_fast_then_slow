@@ -16,4 +16,6 @@ jobs:
       matrix:
         workflow: [lint] # , type_check, security_scan]
     steps:
+      - name: Trying ${{ matrix.workflow }}...
+        run: echo "Trying ${{ matrix.workflow }}..."
       - uses: "cclauss/gha_fast_then_slow/.github/workflows/${{ matrix.workflow }}.yml"
