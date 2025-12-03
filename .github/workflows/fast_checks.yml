@@ -13,7 +13,7 @@ jobs:
     uses: "cclauss/gha_fast_then_slow/.github/workflows/codespell.yml@main"
   lint:
     uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
-  precommit
+  recommit:
     uses: "cclauss/gha_fast_then_slow/.github/workflows/precommit.yml@main"
 
   slow_checks:
