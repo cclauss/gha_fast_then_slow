@@ -18,4 +18,4 @@ jobs:
 
   slow_checks:
     needs: [codespell, lint, precommit]
-    uses: "cclauss/gha_fast_then_slow/.github/build/lint.yml@main"
+    uses: "cclauss/gha_fast_then_slow/.github/workflows/build.yml@main"
