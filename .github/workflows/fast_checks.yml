@@ -10,12 +10,13 @@ on:
 
 jobs:
   fast_checks:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        workflow: [lint] # , type_check, security_scan]
-    steps:
-      - name: Trying ${{ matrix.workflow }}...
-        run: echo "Trying ${{ matrix.workflow }}..."
-      - uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+    #runs-on: ubuntu-latest
+    #strategy:
+    #  fail-fast: false
+    #  matrix:
+    #    workflow: [lint] # , type_check, security_scan]
+    uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
+    # steps:
+    #  - name: Trying ${{ matrix.workflow }}...
+    #    run: echo "Trying ${{ matrix.workflow }}..."
+    #  - uses: "cclauss/gha_fast_then_slow/.github/workflows/lint.yml@main"
