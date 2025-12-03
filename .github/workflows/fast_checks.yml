@@ -1,0 +1,19 @@
+name: fast-checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  fast_checks:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        workflow: [lint] # , type_check, security_scan]
+    steps:
+      - uses: "cclauss/gha_fast_then_slow/.github/workflows/${{ matrix.workflow }}.yml"
